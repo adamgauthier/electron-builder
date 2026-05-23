@@ -1,5 +1,11 @@
 # builder-util
 
+## 26.12.0
+
+### Patch Changes
+
+- Chore: adding additional validations to downloads and child processes _[`#9762`](https://github.com/electron-userland/electron-builder/pull/9762) [`bfd1c1b`](https://github.com/electron-userland/electron-builder/commit/bfd1c1bb23b985b3fc44bcb4bb028fa0496d4638) [@mmaietta](https://github.com/mmaietta)_
+
 ## 26.11.1
 
 ### Patch Changes

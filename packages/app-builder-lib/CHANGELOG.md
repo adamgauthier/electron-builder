@@ -1,5 +1,32 @@
 # app-builder-lib
 
+## 26.12.0
+
+### Minor Changes
+
+- Feat(linux): replace legacy `linux-tools-mac` toolset with v1.0.0 for macOS deb/tar builds for packaging or extracting Linux archives _[`#9767`](https://github.com/electron-userland/electron-builder/pull/9767) [`9a31b4e`](https://github.com/electron-userland/electron-builder/commit/9a31b4eac3155a9eea9bca9593fd616aa1098b73) [@mmaietta](https://github.com/mmaietta)_
+
+### Patch Changes
+
+- Fix: add toolset lockfile for operations that leverage system utils that don't support parallelism (e.g. hdiutil, WiX, etc.) _[`#9761`](https://github.com/electron-userland/electron-builder/pull/9761) [`7955d66`](https://github.com/electron-userland/electron-builder/commit/7955d66682ac5c6c7e74d7c33221d033241294c1) [@mmaietta](https://github.com/mmaietta)_
+- Chore: adding additional validations to downloads and child processes _[`#9762`](https://github.com/electron-userland/electron-builder/pull/9762) [`bfd1c1b`](https://github.com/electron-userland/electron-builder/commit/bfd1c1bb23b985b3fc44bcb4bb028fa0496d4638) [@mmaietta](https://github.com/mmaietta)_
+- Chore(deps): update dependency minimatch to v10.2.5 [security] _[`#9601`](https://github.com/electron-userland/electron-builder/pull/9601) [`65ff591`](https://github.com/electron-userland/electron-builder/commit/65ff5915655a3ec1320815c0bf354301d51735c6) [@renovate](https://github.com/apps/renovate)_
+
+<details><summary>Updated 4 dependencies</summary>
+
+<small>
+
+[`7955d66`](https://github.com/electron-userland/electron-builder/commit/7955d66682ac5c6c7e74d7c33221d033241294c1) [`bfd1c1b`](https://github.com/electron-userland/electron-builder/commit/bfd1c1bb23b985b3fc44bcb4bb028fa0496d4638)
+
+</small>
+
+- `electron-builder-squirrel-windows@26.12.0`
+- `dmg-builder@26.12.0`
+- `builder-util@26.12.0`
+- `electron-publish@26.12.0`
+
+</details>
+
 ## 26.11.1
 
 ### Patch Changes

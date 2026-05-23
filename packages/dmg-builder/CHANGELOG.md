@@ -1,5 +1,24 @@
 # dmg-builder
 
+## 26.12.0
+
+### Patch Changes
+
+- Fix: add toolset lockfile for operations that leverage system utils that don't support parallelism (e.g. hdiutil, WiX, etc.) _[`#9761`](https://github.com/electron-userland/electron-builder/pull/9761) [`7955d66`](https://github.com/electron-userland/electron-builder/commit/7955d66682ac5c6c7e74d7c33221d033241294c1) [@mmaietta](https://github.com/mmaietta)_
+
+<details><summary>Updated 2 dependencies</summary>
+
+<small>
+
+[`9a31b4e`](https://github.com/electron-userland/electron-builder/commit/9a31b4eac3155a9eea9bca9593fd616aa1098b73) [`7955d66`](https://github.com/electron-userland/electron-builder/commit/7955d66682ac5c6c7e74d7c33221d033241294c1) [`bfd1c1b`](https://github.com/electron-userland/electron-builder/commit/bfd1c1bb23b985b3fc44bcb4bb028fa0496d4638) [`65ff591`](https://github.com/electron-userland/electron-builder/commit/65ff5915655a3ec1320815c0bf354301d51735c6)
+
+</small>
+
+- `app-builder-lib@26.12.0`
+- `builder-util@26.12.0`
+
+</details>
+
 ## 26.11.1
 
 ### Patch Changes
