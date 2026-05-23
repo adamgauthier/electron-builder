@@ -1,6 +1,5 @@
 !include FileFunc.nsh
 !include UAC.nsh
-!include WinVer.nsh
 
 !define FOLDERID_UserProgramFiles {5CD7AEE2-2219-4A67-B85D-6C9CE15660CB}
 !define KF_FLAG_CREATE 0x00008000
@@ -30,21 +29,19 @@ Var installMode
     ${else}
       StrCpy $0 "$LocalAppData\Programs"
 
-      ${IfNot} ${AtLeastWin8}
-        Push $1
-        Push $2
-        # Win7 has a per-user programfiles known folder and this can be a non-default location
-        StrCpy $2 0
-        System::Call 'SHELL32::SHGetKnownFolderPath(g "${FOLDERID_UserProgramFiles}", i ${KF_FLAG_CREATE}, p 0, *p .r2)i.r1'
-        ${If} $1 == 0
-          System::Call 'KERNEL32::lstrcpynW(w .r0, p r2, i ${NSIS_MAX_STRLEN})p'
-        ${endif}
-        ${If} $2 != 0
-          System::Call 'OLE32::CoTaskMemFree(p r2)'
-        ${endif}
-        Pop $2
-        Pop $1
-      ${EndIf}
+      Push $1
+      Push $2
+      # UserProgramFiles is the per-user install root and can be a non-default location
+      StrCpy $2 0
+      System::Call 'SHELL32::SHGetKnownFolderPath(g "${FOLDERID_UserProgramFiles}", i ${KF_FLAG_CREATE}, p 0, *p .r2)i.r1'
+      ${If} $1 == 0
+        System::Call 'KERNEL32::lstrcpynW(w .r0, p r2, i ${NSIS_MAX_STRLEN})p'
+      ${endif}
+      ${If} $2 != 0
+        System::Call 'OLE32::CoTaskMemFree(p r2)'
+      ${endif}
+      Pop $2
+      Pop $1
 
       StrCpy $INSTDIR "$0\${APP_FILENAME}"
     ${endif}
