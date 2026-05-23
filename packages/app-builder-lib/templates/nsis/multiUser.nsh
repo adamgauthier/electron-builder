@@ -31,15 +31,19 @@ Var installMode
       StrCpy $0 "$LocalAppData\Programs"
 
       ${IfNot} ${AtLeastWin8}
-        System::Store S
+        Push $1
+        Push $2
         # Win7 has a per-user programfiles known folder and this can be a non-default location
+        StrCpy $2 0
         System::Call 'SHELL32::SHGetKnownFolderPath(g "${FOLDERID_UserProgramFiles}", i ${KF_FLAG_CREATE}, p 0, *p .r2)i.r1'
         ${If} $1 == 0
-          System::Call '*$2(&w${NSIS_MAX_STRLEN} .s)'
-          StrCpy $0 $1
+          System::Call 'KERNEL32::lstrcpynW(w .r0, p r2, i ${NSIS_MAX_STRLEN})p'
+        ${endif}
+        ${If} $2 != 0
           System::Call 'OLE32::CoTaskMemFree(p r2)'
         ${endif}
-        System::Store L
+        Pop $2
+        Pop $1
       ${EndIf}
 
       StrCpy $INSTDIR "$0\${APP_FILENAME}"
